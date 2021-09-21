@@ -1,34 +1,27 @@
-import React, { useContext } from 'react'
-import { Box, Button, Typography } from '@material-ui/core'
-import app from '../../components/authentification/firebase'
-import { AuthContext } from '../../contexts/AuthContext'
+import React, { useEffect, useState } from 'react'
+import HomePage from './HomePage'
+import { filmsRequests } from '../../api/Api'
+import Loader from '../../components/loader/Loader'
 
 const Home = () => {
-    const { currentUser } = useContext(AuthContext)
+    //isLoaded is used to control the render of Home component when all needed data is ready
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [actionMovies, setActionMovies] = useState()
 
-    return (
-        <>
-            <Box>
-                <Box>
-                    <Typography variant='h5'>Home</Typography>
-                </Box>
-                <Box>
-                    <Typography variant='h6'>Welcome, {currentUser.email}</Typography>
-                </Box>
-                <Box>
-                </Box>
-                <Box>
-                    <Button
-                        variant='outlined'
-                        color='primary'
-                        onClick={() => app.auth().signOut()}
-                    >
-                        Sign out
-                    </Button>
-                </Box>
-            </Box>
-        </>
-    )
+    //function should be async because of async fetching from server Api
+    //after data is fetched from Api, it is putted into useState via setting functions
+    async function getActionMovies() {
+        setActionMovies(await filmsRequests.getActionMovies())
+        setIsLoaded(true)
+    }
+
+    //useEffect will work once after component will be rendered. it will call the async function
+    //to fetch data from Api via api requests
+    useEffect(() => {
+        getActionMovies()
+    }, [])
+
+    return <>{isLoaded ? <HomePage actionMovies={actionMovies} /> : <Loader />}</>
 }
 
 export default Home

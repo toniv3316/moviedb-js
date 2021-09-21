@@ -6,6 +6,8 @@ import Login from './components/authentification/login/Login'
 import Home from './pages/home/Home'
 import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './routes/PrivateRoute'
+import Profile from './pages/profile/Profile'
+import Navigation from './components/navigation/Navigation'
 
 function App() {
     return (
@@ -13,14 +15,10 @@ function App() {
             <AuthProvider>
                 <Router>
                     <Container maxWidth={false}>
-                        <Box
-                            width='100%'
-                            height='100vh'
-                            display='flex'
-                            justifyContent='center'
-                            alignItems='center'
-                        >
+                        <Box>
                             <PrivateRoute exact path='/' component={Home} />
+                            <PrivateRoute path='/' component={Navigation} />
+                            <PrivateRoute exact path='/profile' component={Profile} />
                             <Route exact path='/login' component={Login} />
                             <Route exact path='/registration' component={Registration} />
                         </Box>
