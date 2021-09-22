@@ -16,8 +16,8 @@ function App() {
                 <Router>
                     <Container maxWidth={false}>
                         <Box>
-                            <PrivateRoute exact path='/' component={Home} />
                             <PrivateRoute path='/' component={Navigation} />
+                            <PrivateRoute exact path='/' component={Home} />
                             <PrivateRoute exact path='/profile' component={Profile} />
                             <Route exact path='/login' component={Login} />
                             <Route exact path='/registration' component={Registration} />

@@ -4,7 +4,7 @@ import './loaderStyles.css'
 const Loader = () => {
     return (
         <>
-            <div class='load'>
+            <div className='load'>
                 <hr />
                 <hr />
                 <hr />
