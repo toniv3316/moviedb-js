@@ -1,5 +1,6 @@
 # MovieDB
 
+loads for a long time due to api's peculiarities. images take too much traffic
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,6 +1,7 @@
 import { FormControlLabel } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Switch from '@material-ui/core/Switch'
+import { useState } from 'react'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
@@ -50,9 +51,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }))
 
 export const ThemeSwitcher = () => {
+    const [darkMode, setDarkMode] = useState(false)
+
+    const changeMode = () => {
+        setDarkMode(!darkMode)
+        console.log('changed')
+    }
+
     return (
         <>
-                <MaterialUISwitch sx={{ m: 1 }} defaultChecked />
+                <MaterialUISwitch sx={{ m: 1 }} defaultValue={darkMode} onChange={() => changeMode()} />
         </>
     )
 }

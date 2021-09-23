@@ -8,12 +8,16 @@ const Home = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [actionMovies, setActionMovies] = useState([])
     const [horrorMovies, setHorrorMovies] = useState([])
+    const [trendingMovies, setTrendingMovies] = useState([])
+    const [randomMovie, setRandomMovie] = useState(null)
 
     //function should be async because of async fetching from server Api
     //after data is fetched from Api, it is putted into useState via setting functions
     async function getMovies() {
         setActionMovies(await filmsRequests.getActionMovies())
         setHorrorMovies(await filmsRequests.getHorrorMovies())
+        setTrendingMovies(await filmsRequests.getTrendingMovies())
+        setRandomMovie(await filmsRequests.getRandomMovie())
         setIsLoaded(true)
     }
 
@@ -23,7 +27,20 @@ const Home = () => {
         getMovies()
     }, [])
 
-    return <>{isLoaded ? <HomePage actionMovies={actionMovies} horrorMovies={horrorMovies} /> : <Loader />}</>
+    return (
+        <>
+            {isLoaded ? (
+                <HomePage
+                    actionMovies={actionMovies}
+                    horrorMovies={horrorMovies}
+                    trendingMovies={trendingMovies}
+                    randomMovie={randomMovie}
+                />
+            ) : (
+                <Loader />
+            )}
+        </>
+    )
 }
 
 export default Home

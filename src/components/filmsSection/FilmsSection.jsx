@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Box, Typography, Button } from '@material-ui/core'
-import { FilmSectionStyles } from './FilmsSectionStyles'
+import { useFilmSectionStyles } from './useFilmsSectionStyles'
+import Rating from '@mui/material/Rating'
 
 const FilmsSection = ({ filmsToMap }) => {
-    const classes = FilmSectionStyles()
+    const classes = useFilmSectionStyles()
     const imagePath = 'https://image.tmdb.org/t/p/original/'
     const [trailerID, setTrailerID] = useState(null)
 
     //+ attr backdrop_path shows fullHD image
     //+ attr poster_path shows poster image
-    /* overview popularity release_date title vote_average vote_count
+    /* overview popularity release_date title vote_average vote_count backdrop_path poster_path
 
     */
 
@@ -33,23 +34,33 @@ const FilmsSection = ({ filmsToMap }) => {
                             ) : (
                                 <img
                                     className={classes.filmsSection__poster}
-                                    src={`${imagePath}${film.backdrop_path}`}
+                                    // src={`${imagePath}${film.backdrop_path}`}
                                     alt={film.original_title}
                                 />
                             )}
                         </Button>
                     </Box>
-                    <Typography variant='h5'>{film.original_title}</Typography>
-                    //todo add star rating
-                    {/* <Box>
-                        <Typography variant='h6'>Rating</Typography>
-                        <Rating name='customized-10' defaultValue={2} max={10} />
-                    </Box> */}
-                    <Box>
-                        <Typography variant='body1'>{film.overview}</Typography>
+                    <Box className={classes.filmsSection__description}>
+                        <Typography variant='h5'>
+                            {film.title ? film.title : film.name}
+                        </Typography>
+                        <Box>
+                            <Rating
+                                name='film-rating'
+                                readOnly
+                                precision={0.1}
+                                max={10}
+                                value={film.vote_average}
+                                readOnly
+                            />
+                        </Box>
+                        <Box>
+                            <Typography variant='body1'>{film.overview}</Typography>
+                        </Box>
+                        <Box className={classes.filmsSection__functional}>
+                            <Button variant='outlined'>Learn more</Button>
+                        </Box>
                     </Box>
-                    {/* <img src={`${imagePath}${film.backdrop_path}`} alt={film.original_title} /> */}
-                    {/*  <img src={`${imagePath}${film.poster_path}`} alt={film.original_title} /> */}
                 </Box>
             </>
         )

@@ -20,27 +20,47 @@ const instance = axios.create({
 })
 
 const getFilms = (request) => {
-    return (
-        instance.get(request).then(response => {return response.data})
-    )
+    return instance.get(request).then((response) => {
+        return response.data
+    })
 }
 
 export const filmsRequests = {
     getActionMovies() {
-        return (
-            instance.get(`discover/movie?api_key=${API_KEY}&with_genres=28`)
-                .then(response => {
-                    return response.data
-                })
-        )
+        return instance
+            .get(`discover/movie?api_key=${API_KEY}&with_genres=28`)
+            .then((response) => {
+                return response.data
+            })
     },
     getHorrorMovies() {
-        return (
-            instance.get(`discover/movie?api_key=${API_KEY}&with_genres=27`)
-                .then(response => {
-                    return response.data
-                })
-        )
+        return instance
+            .get(`discover/movie?api_key=${API_KEY}&with_genres=27`)
+            .then((response) => {
+                return response.data
+            })
+    },
+    getTrendingMovies() {
+        return instance
+            .get(`trending/all/week?api_key=${API_KEY}&language=en-US`)
+            .then((response) => {
+                return response.data
+            })
+    },
+    getNetflixOriginals() {
+        return instance
+            .get(`discover/tv?api_key=${API_KEY}&with_networks=213`)
+            .then((response) => {
+                return response.data
+            })
+    },
+    getRandomMovie() {
+        return instance
+            .get(`trending/all/week?api_key=${API_KEY}&language=en-US`)
+            .then((response) => {
+                const randomMovie = response.data.results[Math.floor(Math.random() * 20)]
+                return randomMovie
+            })
     },
 }
 

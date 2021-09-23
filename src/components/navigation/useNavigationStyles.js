@@ -1,11 +1,17 @@
 import { makeStyles } from '@material-ui/core'
 
-export const NavigationStyles = makeStyles({
+export const useNavigationStyles = makeStyles({
     navigation: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0.5em',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        boxSizing: 'border-box',
+        padding: '1em 1.5em',
+        zIndex: 2,
         background: 'gray',
     },
     navigation__primary: {
@@ -19,6 +25,6 @@ export const NavigationStyles = makeStyles({
     navigation__link: {
         fontSize: '1.1em',
         textDecoration: 'none',
-        marginRight: '0.5em',
+        marginRight: '1em',
     },
 })

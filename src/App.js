@@ -14,15 +14,13 @@ function App() {
         <>
             <AuthProvider>
                 <Router>
-                    <Container maxWidth={false}>
-                        <Box>
-                            <PrivateRoute path='/' component={Navigation} />
-                            <PrivateRoute exact path='/' component={Home} />
-                            <PrivateRoute exact path='/profile' component={Profile} />
-                            <Route exact path='/login' component={Login} />
-                            <Route exact path='/registration' component={Registration} />
-                        </Box>
-                    </Container>
+                    <Box>
+                        <PrivateRoute path='/' component={Navigation} />
+                        <PrivateRoute exact path='/' component={Home} />
+                        <PrivateRoute exact path='/profile' component={Profile} />
+                        <Route exact path='/login' component={Login} />
+                        <Route exact path='/registration' component={Registration} />
+                    </Box>
                 </Router>
             </AuthProvider>
         </>
