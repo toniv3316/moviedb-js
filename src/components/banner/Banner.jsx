@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Typography, CardMedia, makeStyles } from '@material-ui/core'
+import { Box, Button, Typography } from '@material-ui/core'
 import useBannerStyles from './useBannerStyles'
 import ComplexBackground from '../complexBackground/ComplexBackground'
 

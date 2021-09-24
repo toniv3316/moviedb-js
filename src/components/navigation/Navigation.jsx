@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Button, Switch } from '@material-ui/core'
+import { Box, Button } from '@material-ui/core'
 import { useNavigationStyles } from './useNavigationStyles'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import { Link } from 'react-router-dom'
 import { ThemeSwitcher } from '../themeSwitcher/ThemeSwitcher'
 

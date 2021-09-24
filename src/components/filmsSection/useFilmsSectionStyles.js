@@ -3,9 +3,16 @@ import { makeStyles } from '@material-ui/core/styles'
 export const useFilmSectionStyles = makeStyles({
     filmsSection: {
         display: 'flex',
+        flexDirection: 'column',
         overflowX: 'scroll',
         margin: '10px 0',
         color: 'white',
+    },
+    filmsSection__heading: {
+
+    },
+    filmsSection__slider: {
+        display: 'flex',
     },
     filmsSection__film: {
         width: 550,

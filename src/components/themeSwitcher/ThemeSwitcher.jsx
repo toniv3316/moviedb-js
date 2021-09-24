@@ -1,4 +1,3 @@
-import { FormControlLabel } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import Switch from '@material-ui/core/Switch'
 import { useState } from 'react'

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Box, Container } from '@material-ui/core'
+import React from 'react'
+import { Box } from '@material-ui/core'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Registration from './components/authentification/registration/Registration'
 import Login from './components/authentification/login/Login'
