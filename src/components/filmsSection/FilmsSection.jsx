@@ -34,7 +34,7 @@ const FilmsSection = ({ filmsToMap }) => {
                             ) : (
                                 <img
                                     className={classes.filmsSection__poster}
-                                    // src={`${imagePath}${film.backdrop_path}`}
+                                    src={`${imagePath}${film.backdrop_path}`}
                                     alt={film.original_title}
                                 />
                             )}
@@ -58,7 +58,7 @@ const FilmsSection = ({ filmsToMap }) => {
                             <Typography variant='body1'>{film.overview}</Typography>
                         </Box>
                         <Box className={classes.filmsSection__functional}>
-                            <Button variant='outlined'>Learn more</Button>
+                            <Button variant='outlined' className={classes.filmsSection__btn}>Learn more</Button>
                         </Box>
                     </Box>
                 </Box>

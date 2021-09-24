@@ -48,7 +48,7 @@ const Navigation = () => {
                     </Link>
                     <ThemeSwitcher />
                     <Box>
-                        <Button variant='outlined'>Log out</Button>
+                        <Button className={classes.navigation__btn} variant='outlined'>Log out</Button>
                     </Box>
                 </Box>
             </nav>

@@ -12,7 +12,7 @@ export const useNavigationStyles = makeStyles({
         boxSizing: 'border-box',
         padding: '1em 1.5em',
         zIndex: 2,
-        background: 'gray',
+        background: 'black',
     },
     navigation__primary: {
         display: 'flex',
@@ -23,8 +23,17 @@ export const useNavigationStyles = makeStyles({
         alignItems: 'center',
     },
     navigation__link: {
+        color: 'white',
         fontSize: '1.1em',
         textDecoration: 'none',
         marginRight: '1em',
+        transition: '.2s',
+        '&:hover': {
+            color: 'rgba(222,222,222,0.9)',
+        },
+    },
+    navigation__btn: {
+        color: 'white',
+        borderColor: 'white',
     },
 })

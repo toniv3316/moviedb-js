@@ -2,12 +2,20 @@ import { makeStyles } from '@material-ui/core'
 
 const useBannerStyles = makeStyles({
     banner: {
-        marginTop: 82,
-        height: 500,
-        padding: '3em 1.5em',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        height: '90vh',
+        marginTop: 82,
+        color: 'white',
+    },
+    banner__inner: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        height: '100%',
+        padding: '2rem 1rem',
     },
     banner__wrapper: {
         display: 'flex',
@@ -21,7 +29,11 @@ const useBannerStyles = makeStyles({
             flex: 1,
         },
     },
-    banner__button: {},
+    banner__button: {
+        marginTop: '2rem',
+        color: 'white',
+        borderColor: 'white',
+    },
 })
 
 export default useBannerStyles

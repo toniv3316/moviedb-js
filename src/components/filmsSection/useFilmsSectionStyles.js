@@ -5,11 +5,12 @@ export const useFilmSectionStyles = makeStyles({
         display: 'flex',
         overflowX: 'scroll',
         margin: '10px 0',
+        color: 'white',
     },
     filmsSection__film: {
         width: 550,
-        background: 'gray',
         textAlign: 'center',
+        border: '1px solid rgba(222,222,222,0.4)',
         '&:not(:first-child):not(:last-child)': {
             margin: '0 10px',
         },
@@ -46,5 +47,9 @@ export const useFilmSectionStyles = makeStyles({
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         height: '100%',
+    },
+    filmsSection__btn: {
+        color: 'white',
+        borderColor: 'white',
     },
 })
